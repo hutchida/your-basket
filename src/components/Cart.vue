@@ -60,7 +60,7 @@
                 </div>
               </div>
             </td>
-            <td>£{{ round(p.quantity * p.price, 2) }}</td>
+            <td>£{{ (p.quantity * p.price).toFixed(2) }}</td>
             <td>
               <a @click="makeQuantityZero({ product: p, quantity: 0 })" href="#"
                 ><img src="../assets/trash.svg" alt="Remove"
@@ -74,14 +74,14 @@
           <td>Subtotal:</td>
           <td></td>
           <td></td>
-          <td>£{{ total }}</td>
+          <td>£{{ total.toFixed(2) }}</td>
           <td></td>
         </tr>
         <tr>
           <td>VAT @ 20%:</td>
           <td></td>
           <td></td>
-          <td>£{{ round(total * 0.2, 2) }}</td>
+          <td>£{{ (total * 0.2).toFixed(2) }}</td>
           <td></td>
         </tr>
         <tr>
@@ -89,7 +89,7 @@
           <td></td>
           <td></td>
           <td>
-            <b>£{{ total }}</b>
+            <b>£{{ (total + (total * 0.2)).toFixed(2)}}</b>
           </td>
           <td></td>
         </tr>
@@ -97,7 +97,7 @@
     </table>
     <p>
       <button
-        v-show="products.length"
+        :disabled="total==0"
         class="button is-primary"
         @click="checkout"
       >
