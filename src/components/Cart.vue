@@ -89,48 +89,64 @@
           <td></td>
           <td></td>
           <td>
-            <b>£{{ (total + (total * 0.2)).toFixed(2)}}</b>
+            <b>£{{ (total + total * 0.2).toFixed(2) }}</b>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><br/>
+            <button :disabled="total == 0" class="checkout" @click="Checkout">
+              Buy Now >>
+            </button>
           </td>
           <td></td>
         </tr>
       </tbody>
     </table>
-    <p>
-      <button
-        :disabled="total==0"
-        class="button is-primary"
-        @click="checkout"
-      >
-        Buy Now >>
-      </button>
-    </p>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import axios from "axios";
 
 export default {
   computed: {
     ...mapGetters({
       products: "cartProducts",
     }),
+    selectedItems() {
+      return this.products.reduce(this.selectedItems, this.p);
+    },
     total() {
       return this.products.reduce((total, p) => {
         return total + p.price * p.quantity;
       }, 0);
     },
+    totalPlusVat() {
+      return (this.total + this.total * 0.2).toFixed(2);
+    },
   },
-  methods: {
-    checkout() {
-      alert("Pay us £" + this.total);
-    },
-    round(value, decimals) {
-      return Number(
-        Math.round(value + "e" + decimals) + "e-" + decimals
-      ).toFixed(decimals);
-    },
 
+  methods: {
+    Checkout() {
+      axios.post("/pay", this.products).then(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+      console.log("JSON posted with axios request:");
+      console.log(this.products);
+      alert(
+        "You have successfully paid £" + this.totalPlusVat + " for your items."
+      );
+    },
     ...mapActions([
       "incrementCart",
       "decrementCart",
@@ -155,8 +171,13 @@ export default {
   width: 25px;
   height: 18px;
 }
-
-
+.checkout {
+  color: white;
+  box-shadow: 3px 3px 0px #888888;
+  border-radius: 10px;
+  background-color: #3a3670;
+  padding: 10px 20px;
+}
 input#quantity {
   text-align: right;
   border: 1px solid #ddd;
@@ -166,9 +187,9 @@ input#quantity {
   height: 32px;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 </style>
