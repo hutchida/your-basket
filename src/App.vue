@@ -1,16 +1,13 @@
 <template>
   <div id="app" class="container">
-    <nav-bar></nav-bar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import NavBar from "./components/NavBar.vue";
 export default {
   name: "app",
   components: {
-    NavBar,
   },
   data() {
     return {};
@@ -18,5 +15,5 @@ export default {
 };
 </script>
 
-<style scoped src="@/assets/styles/app.css">
+<style src="@/assets/styles/app.css">
 </style>
