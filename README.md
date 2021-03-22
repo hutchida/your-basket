@@ -4,10 +4,10 @@ This is a simple Vue2 app that tests working with the Vuex store. The app shows 
 
 # Instructions
 
-You will need to have the vue cli installed globally, then babel locally, then run the app:
+You will need to have the vue cli installed globally, then all the local dependencies, then run the app:
 
 npm install @vue/cli-service -g
 
-npm install babel
+npm install
 
 npm run serve
