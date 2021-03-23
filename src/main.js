@@ -1,27 +1,27 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import store from './store/index.js'
-import App from './App.vue'
-import Cart from './components/Cart.vue'
-import GridCart from './components/GridCart.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import store from './store/index.js';
+import App from './App.vue';
+import Cart from './components/Cart.vue';
+import GridCart from './components/GridCart.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 // Define routes
 const routes = [
-  { path: '/', component: Cart},
-  {path: '/grid', component: GridCart }
-]
+    { path: '/', component: Cart },
+    { path: '/grid', component: GridCart },
+];
 
 // Register routes
 const router = new VueRouter({
-  mode: 'history',
-  routes
-})
+    mode: 'history',
+    routes,
+});
 
 new Vue({
-  el: '#app',
-  render: h => h(App),
-  router,
-  store
-})
+    el: '#app',
+    render: (h) => h(App),
+    router,
+    store,
+});
