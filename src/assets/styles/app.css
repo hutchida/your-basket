@@ -1,22 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 
 #app {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
 }
 
+.container {
+  margin: auto;
+  display: table;
+}
+
+.basket-container {
+  margin-bottom: 100%;
+}
+
+body{
+  background: rgb(157,157,157);
+  background: linear-gradient(to top, rgba(190,190,190,1) 0%, rgba(255,255,255,1) 100%); 
+  overflow: hidden;
+}
+
+.title{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+p.title{
+  font-size: small;
+}
+
 a,
 button {
     cursor: pointer;
-}
-
-.container {
-    margin: auto;
-    display: table;
-}
-
-.form {
-    margin-top: 40px;
 }
 
 .input-element {
@@ -26,23 +40,78 @@ button {
 .center {
     text-align: center;
 }
+
 .right {
     text-align: right;
 }
 
-.input-group button {
-    display: block;
-    width: 17px;
-    height: 17px;
-    padding: 0px;
-    border: none;
-    margin: 1px;
-    background-color: #a0a0a0;
-    color: white;
-    border-radius: 0px;
+.basket {
+  display: grid;
+  grid-template-columns: 45% 15% 25% auto;
 }
 
-.checkout {
+.basket > span {
+  display: grid;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 15px;
+  padding-left: 15px;
+  align-self: stretch;
+  align-items: center;
+}
+
+.basket-header {
+  margin-top: 40px;
+}
+
+.basket-header > span{  
+border-bottom: 1px solid black;
+}
+
+.basket.main:nth-of-type(2n + 1) > span {
+  background-color: #f2f2f2;
+}
+
+.basket-items > span:last-child {
+text-align: right;
+padding-right: 15px;
+}
+
+.input-number {
+  text-align: right;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px 1px 0px 0px;
+  height: 32px;
+}
+
+.input-group button {
+  display: block;
+  width: 17px;
+  height: 17px;
+  padding: 0px;
+  border: none;
+  margin: 1px;
+  background-color: #a0a0a0;
+  color: white;
+  border-radius: 0px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+svg {
+  fill: #3a3670;
+}
+
+.button-checkout {
     color: white;
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.6);
     border-radius: 10px;
@@ -50,122 +119,17 @@ button {
     background-color: #3a3670;
     padding: 10px 20px;
     float: right;
-    margin-right: 10%;
+    margin-right: 15px;
     margin-top: 60px;
     font-weight: bold;
-}
-
-button.checkout.is-grid {
-    margin-right: 0%;
 }
 
 :disabled {
     background: #dddddd;
     cursor: not-allowed;
-}
-input#quantity {
-    text-align: right;
-    border: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    margin: 0px 1px 0px 0px;
-    height: 32px;
+    color:rgb(231, 230, 230);
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type='number'] {
-    -moz-appearance: textfield;
-}
-
-table.is-striped tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.blank td,
-td.blank {
-    background-color: #fff;
-    border: 0px;
-}
-
-.min td {
-    padding: 0px 10px;
-}
-.grey td {
-    color: #acacac;
-}
-table {
-    width: 100%;
-}
-
-table,
-th,
-td {
-    border-collapse: collapse;
-    padding: 10px;
-}
-table thead tr td {
-    border-bottom: 1px solid black;
-    font-weight: bold;
-}
-
-svg {
-    fill: #3a3670;
-}
-
-
-.title{
-  padding-left: 15px;
-  padding-right: 15px;
-}
-p.title{
-  font-size: small;
-}
-
-.grid {
-    display: grid;
-    /* grid-template-columns: repeat(4, 1fr); */
-    grid-template-columns: 220px 80px 100px 70px;
-}
-
-.grid > span {
-    display: grid;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-right: 15px;
-    padding-left: 15px;
-    align-self: stretch;
-    align-items: center;
-}
-
-
-.grid.header {
-    margin-top: 40px;
-    /* grid-template-columns: repeat(4, 1fr); */
-}
-.grid>span{  
-  border-bottom: 1px solid black;
-}
-
-.grid.main:nth-of-type(2n + 1) > span {
-    background-color: #f2f2f2;
-}
-
-.grid.greyed {
-    grid-template-rows: 20px;
-}
-.greyed > span {
-    color: #acacac;
-    margin: 0px;
-}
-
-.grid-main > span:last-child {
-  text-align: right;
-  padding-right: 15px;
-}
 .container-delete {
     position: relative;
 }
@@ -187,7 +151,7 @@ p.title{
 
 .basket-footer .container-flex > .row {
     flex: 1;
-    color: #acacac;
+    color: #6d6d6d;
     padding: 0 10px;
 }
 

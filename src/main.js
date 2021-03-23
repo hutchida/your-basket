@@ -3,14 +3,12 @@ import VueRouter from 'vue-router';
 import store from './store/index.js';
 import App from './App.vue';
 import Cart from './components/Cart.vue';
-import GridCart from './components/GridCart.vue';
 
 Vue.use(VueRouter);
 
 // Define routes
 const routes = [
     { path: '/', component: Cart },
-    { path: '/grid', component: GridCart },
 ];
 
 // Register routes
