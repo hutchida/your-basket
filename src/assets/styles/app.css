@@ -145,12 +145,12 @@ p.title {
 .basket-footer .container-flex > .row {
     flex: 1;
     color: #6d6d6d;
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
 .basket-footer .container-flex > .row:last-child {
     text-align: right;
-    padding-right: 15px;
+    padding-right: 10px;
 }
 
 .basket-footer .container-flex.total > .row {
@@ -167,7 +167,7 @@ p.title {
     background-color: #3a3670;
     padding: 10px 20px;
     float: right;
-    margin-right: 15px;
+    margin-right: 10px;
     margin-top: 60px;
     font-weight: bold;
 }
