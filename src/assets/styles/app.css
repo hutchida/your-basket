@@ -28,10 +28,11 @@ input[type='number'] {
     -moz-appearance: textfield;
 }
 
-:disabled {
-    background: #dddddd;
+.button-checkout[disabled]:disabled
+{
+    background-color: #cccccc ;
     cursor: not-allowed;
-    color: rgb(231, 230, 230);
+    color: #acacac
 }
 
 svg {
@@ -181,13 +182,16 @@ p.title {
         padding-left: 0;
     }
 
+    hr {
+      margin-top: 20px;
+    }
+
     .basket-container {
         margin-left: 0px;
     }
 
     .basket {
         display: block;
-        border-bottom: 1px solid black;
         margin-bottom: 10px;
         padding-bottom: 10px;
         overflow: hidden;
