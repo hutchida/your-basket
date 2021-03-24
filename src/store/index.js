@@ -6,7 +6,6 @@ Vue.use(Vuex);
 
 const debug = process.env.NODE_ENV !== 'production';
 
-// initial state
 const state = {
     added: [
         {
@@ -56,7 +55,6 @@ const state = {
     ],
 };
 
-// getters
 const getters = {
     allProducts: (state) => state.all, // would need action/mutation if data fetched async
     getNumberOfProducts: (state) => (state.all ? state.all.length : 0),
@@ -74,7 +72,6 @@ const getters = {
     },
 };
 
-// actions
 const actions = {
     updateQuantity({ commit }, product) {
         commit(types.UPDATE_QUANTITY, {
@@ -103,7 +100,6 @@ const actions = {
     },
 };
 
-// mutations
 const mutations = {
     [types.UPDATE_QUANTITY](state, { id, q }) {
         const record = state.added.find((p) => p.id === id);
@@ -142,7 +138,6 @@ const mutations = {
     },
 };
 
-// one store for entire application
 export default new Vuex.Store({
     state,
     strict: debug,

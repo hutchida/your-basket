@@ -7,9 +7,7 @@ import Cart from './components/Cart.vue';
 Vue.use(VueRouter);
 
 // Define routes
-const routes = [
-    { path: '/', component: Cart },
-];
+const routes = [{ path: '/', component: Cart }];
 
 // Register routes
 const router = new VueRouter({
