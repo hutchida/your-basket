@@ -10,23 +10,14 @@ const state = {
     added: [
         {
             id: 'cc919e21-ae5b-5e1f-d023-c40ee669520c',
-            name: 'Cotton T-Shirt, Medium',
-            description: '',
-            price: 1.99,
             quantity: 1,
         },
         {
             id: 'bcd755a6-9a19-94e1-0a5d-426c0303454f',
-            name: 'Baseball Cap, One Size',
-            description: '',
-            price: 2.99,
             quantity: 2,
         },
         {
             id: '727026b7-7f2f-c5a0-ace9-cc227e686b8e',
-            name: 'Swim Shorts, Medium',
-            description: '',
-            price: 3.99,
             quantity: 1,
         },
     ],
@@ -43,7 +34,7 @@ const state = {
             name: 'Baseball Cap, One Size',
             description: '',
             price: 2.99,
-            quantity: 2,
+            quantity: 1,
         },
         {
             id: '727026b7-7f2f-c5a0-ace9-cc227e686b8e',
@@ -56,8 +47,7 @@ const state = {
 };
 
 const getters = {
-    allProducts: (state) => state.all, // would need action/mutation if data fetched async
-    getNumberOfProducts: (state) => (state.all ? state.all.length : 0),
+
     cartProducts: (state) => {
         return state.added.map(({ id, quantity }) => {
             const product = state.all.find((p) => p.id === id);

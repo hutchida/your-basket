@@ -42,7 +42,7 @@
                                 oninput="validity.valid || (value = this.previousValue)"
                             />
                         </div>
-                        <div class="input-element right">
+                        <div class="input-element right"> 
                             <button
                                 @click="incrementCart(p)"
                                 type="button"
@@ -84,7 +84,7 @@
                                 d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"
                             /></svg
                     ></a>
-                <hr /></span>
+                <hr/></span>
                 
             </template>
         </div>
@@ -123,13 +123,10 @@ export default {
         ...mapGetters({
             products: 'cartProducts',
         }),
-        selectedItems() {
-            return this.products.reduce(this.selectedItems, this.p);
-        },
         total() {
             return this.products.reduce((total, p) => {
                 return total + p.price * p.quantity;
-            }, 0);
+            },0);
         },
         totalPlusVat() {
             return (this.total + this.total * 0.2).toFixed(2);
